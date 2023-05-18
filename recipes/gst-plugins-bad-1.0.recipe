@@ -3,6 +3,7 @@ from cerbero.tools.libtool import LibtoolLibrary
 
 class Recipe(custom.GStreamer):
     name = 'gst-plugins-bad-1.0'
+    patches = [name + '/0001-vtdec-reset-texture-cache-on-renegotiate.patch']
     btype = BuildType.MESON
     # License path/location is different in tarball vs. monorepo
     if custom.GStreamer.stype == SourceType.TARBALL:
