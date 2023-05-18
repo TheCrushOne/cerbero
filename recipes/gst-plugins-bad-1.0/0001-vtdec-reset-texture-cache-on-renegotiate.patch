@@ -1,0 +1,25 @@
+From 1bf448100157cc8795295c6fb51f7fb5235003a6 Mon Sep 17 00:00:00 2001
+From: agpanarin <agpanarin@gmail.com>
+Date: Thu, 18 May 2023 01:12:00 +0400
+Subject: [PATCH] vtdec: reset texture cache on renegotiate
+
+---
+ sys/applemedia/vtdec.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/sys/applemedia/vtdec.c b/sys/applemedia/vtdec.c
+index f5e5415..4daeb56 100644
+--- a/sys/applemedia/vtdec.c
++++ b/sys/applemedia/vtdec.c
+@@ -465,7 +465,7 @@ gst_vtdec_negotiate (GstVideoDecoder * decoder)
+       GST_INFO_OBJECT (vtdec, "pushing GL textures, context %p old context %p",
+           vtdec->ctxh->context, cache_gl ? cache_gl->ctx : NULL);
+
+-      if (cache_gl && cache_gl->ctx != vtdec->ctxh->context) {
++      if (cache_gl) {
+         g_object_unref (vtdec->texture_cache);
+         vtdec->texture_cache = NULL;
+       }
+--
+2.39.2 (Apple Git-143)
+

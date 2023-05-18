@@ -25,3 +25,4 @@ MANIFEST.in
 /gstreamer*.tar.xz
 /gstreamer*.tar.zst
 /gstreamer*.whl
+/repack
