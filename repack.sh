@@ -4,7 +4,7 @@
 rm -rf repack
 
 # extract
-pkgutil --expand-full ios-framework-1.22.2-arm64.pkg repack
+pkgutil --expand-full ios-framework-1.22.2-universal.pkg repack
 
 # pack
 cd repack/Payload/GStreamer.framework/Versions/Current
