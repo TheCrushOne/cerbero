@@ -38,7 +38,7 @@ class GStreamer(recipe.Recipe):
 
     if use_git:
         stype = SourceType.GIT
-        remotes = {'origin': 'https://github.com/TheCrushOne/gstreamer.git'}
+        remotes = {'origin': 'https://git.tacita.net/tacita-team/3rd-party/gstreamer.git'}
         if int(version.split('.')[1]) % 2 == 0:
             # Even version, use the specific branch
             commit = 'origin/' + '.'.join(version.split('.')[0:4])
