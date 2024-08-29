@@ -21,8 +21,8 @@ def running_on_cerbero_ci():
 
 class GStreamer(recipe.Recipe):
     licenses = [License.LGPLv2Plus]
-    version = CERBERO_VERSION
-    tagged_for_release = True
+    version = '1.22.12.patch'
+    tagged_for_release = False
 
     # Decide what stype to use
     use_git = True
@@ -38,10 +38,10 @@ class GStreamer(recipe.Recipe):
 
     if use_git:
         stype = SourceType.GIT
-        remotes = {'origin': 'https://gitlab.freedesktop.org/gstreamer/gstreamer.git'}
+        remotes = {'origin': 'https://github.com/TheCrushOne/gstreamer.git'}
         if int(version.split('.')[1]) % 2 == 0:
             # Even version, use the specific branch
-            commit = 'origin/' + '.'.join(version.split('.')[0:2])
+            commit = 'origin/' + '.'.join(version.split('.')[0:4])
         else:
             # Odd version, use git main
             commit = 'origin/main'
