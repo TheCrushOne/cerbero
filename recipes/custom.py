@@ -21,7 +21,7 @@ def running_on_cerbero_ci():
 
 class GStreamer(recipe.Recipe):
     licenses = [License.LGPLv2Plus]
-    version = '1.22.12.patch'
+    version = '1.28.4.patch.android'
     tagged_for_release = False
 
     # Decide what stype to use
@@ -41,7 +41,7 @@ class GStreamer(recipe.Recipe):
         remotes = {'origin': 'https://git.tacita.net/tacita-team/3rd-party/gstreamer.git'}
         if int(version.split('.')[1]) % 2 == 0:
             # Even version, use the specific branch
-            commit = 'origin/' + '.'.join(version.split('.')[0:4])
+            commit = 'origin/' + '.'.join(version.split('.')[0:5])
         else:
             # Odd version, use git main
             commit = 'origin/main'
