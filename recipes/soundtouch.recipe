@@ -9,7 +9,7 @@ class Recipe(recipe.Recipe):
     stype = SourceType.TARBALL
     url = 'https://codeberg.org/soundtouch/soundtouch/archive/%(version)s.tar.gz'
     tarball_dirname = 'soundtouch'
-    tarball_checksum = 'e07abf20ce8f95850c280132e1f61ad400fc1f4011b7fac698a503de6aab6733'
+    tarball_checksum = '35d404e6e8c2ebd12fb4000da6fadd75c99e37eed2126a04721828c11c0377ec'
 
     patches = [
         # https://wrapdb.mesonbuild.com/v2/soundtouch_2.4.1-1/get_patch
