@@ -548,7 +548,7 @@ class Recipe(custom.GStreamer):
         else:
             self.enable_plugin('svtav1', 'codecs', dep='svt-av1')
 
-        self.enable_plugin('x265', 'codecs_gpl_restricted', dep='x265')
+        #self.enable_plugin('x265', 'codecs_gpl_restricted', dep='x265')
 
         if not Platform.is_app_platform(self.config.target_platform):
             # These need plugins
