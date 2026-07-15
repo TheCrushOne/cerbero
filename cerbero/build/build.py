@@ -552,7 +552,7 @@ class Autotools(MakefilesBase):
     add_host_build_target = True
     can_use_configure_cache = True
     supports_cache_variables = True
-    disable_introspection = False
+    disable_introspection = True
     override_libtool = True
 
     def __init__(self):
