@@ -48,10 +48,6 @@ class Recipe(recipe.Recipe):
             # Cargo tries to look up an import lib when LibraryType.BOTH
             # librsvg only generates the shared library
             self.library_type = LibraryType.SHARED
-            # GCC willfully obeys LIBRARY_PATH
-            if self.config.platform != self.config.target_platform:
-                self.set_env('LDFLAGS')
-                self.set_env('LIBRARY_PATH')
         try:
             self.target_triple = self.config.rust_triple(self.config.target_arch,
                 self.config.target_platform, self.config.target_subsystem, self.using_msvc())
@@ -117,7 +113,8 @@ class Recipe(recipe.Recipe):
         # removing the bitcode from the static library
         libraries = [f for f in self.devel_files_list(only_existing=False)
                                 if f.endswith('.a')]
-        if self.config.target_subsystem == Subsystem.MACOS:
+        if self.config.target_platform == Platform.DARWIN and \
+            self.config.target_subsystem == Subsystem.MACOS:
             prelinker = Prelink(self.config, self.env, self.logfile)
             for f in libraries:
                 prelinker.prelink(f, '_rsvg*')
